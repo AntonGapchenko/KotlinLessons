@@ -8,29 +8,26 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 
-
-private lateinit var sendBtn: Button
-private lateinit var rainbowBtn: Button
-private lateinit var sampleEditText: EditText
-private lateinit var sampleTextView: TextView
-private lateinit var layoutConst: ConstraintLayout
-private var changeColor = false
-private var counter = 0
-
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var sendBtn: Button
+    private lateinit var rainbowBtn: Button
+    private lateinit var sampleEditText: EditText
+    private lateinit var sampleTextView: TextView
+    private lateinit var layoutConst: ConstraintLayout
+    private var changeColor = false
+    private var counter = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        init()
+        initViews()
         sendBtn.setOnClickListener {
             val string = sampleEditText.text
             sampleTextView.text = string
         }
-        rainbowBtn.setOnClickListener() { changeLayoutColor() }
+        rainbowBtn.setOnClickListener{ changeLayoutColor() }
     }
 
-    private fun init() {
+    private fun initViews() {
         sendBtn = findViewById(R.id.button_send)
         rainbowBtn = findViewById(R.id.button_rainbow)
         sampleEditText = findViewById(R.id.edit_text)
